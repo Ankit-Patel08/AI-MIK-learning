@@ -12,6 +12,8 @@ client = OpenAI(
 
 messages = []  # initialize an empty list to store the conversation history
 
+messages.append({"role": "system", "content": "Act like a very humble agent and respond always under 30 words"})  # add a system message to the conversation history to set the context for the model, giving it a personality 
+
 while True:             # infinite loop to keep the program running and allow for multiple interactions with the model
     user_input = input("User: ")       # get user input from the command line
     if user_input.lower() in ["exit", "quit", "bye", "goodbye"]:    # check if the user wants to exit the program
