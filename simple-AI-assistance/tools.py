@@ -1,6 +1,9 @@
 
 from datetime import datetime   
 import requests
+import json
+
+from Utilities.utilities import log
 
 def get_current_time():     #this the tool which we are defining to get the current date and time. This function will be called by the model when it needs to get the current date and time.
     return datetime.now().strftime("%Y-%m-%d %H:%M:%S")
@@ -91,3 +94,26 @@ FUNCTIONS_NAME_TO_FUNCTION_MAPPING = {       # this is a dictionary that maps th
     "get_city_weather": get_city_weather,
     "get_my_city_location": get_my_city_location
 }
+
+
+
+
+def execute_tool(tool_call):
+    function_name = tool_call.function.name  # get the name of the tool(function) that was called
+    log(f"Model requested tool: {function_name}")
+
+    try:
+        function_args = json.loads(tool_call.function.arguments or "{}")  # get the arguments passed to the tool(function) that was called and convert them from a JSON string to a Python dictionary
+
+        fn = FUNCTIONS_NAME_TO_FUNCTION_MAPPING.get(function_name)  # get the actual function object from the mapping dictionary using the function name
+
+        if fn is None:
+            raise ValueError(f"Unknown function: {function_name}")
+
+        result = fn(**function_args)  # call the function with the arguments and store the result
+
+    except Exception as e:
+        log(f"Tool {function_name} failed: {type(e).__name__}: {e}")
+        result = f"Error calling function {function_name}: {str(e)}"
+
+    return result

@@ -1,5 +1,4 @@
 
-import json
 
 from openai import OpenAI   #import the OpenAI class from the openai module
 from dotenv import load_dotenv  #import the load_dotenv function from the dotenv module
@@ -44,16 +43,6 @@ while True:             # infinite loop to keep the program running and allow fo
     messages.append({"role": "user", "content": user_input})  # add the user's input to the conversation history
 
 
-    #  WE ARE COMMENTING OUT THIS PART BECAUSE WE WANT TO FINISH ALL THE TOOL CALLS FIRST WHETHER IT BE SEQUENTIAL OR PARALLEL 
-    # response = client.chat.completions.create(       # this is the openai endpoint for generating responses from the model. It takes in a list of messages and returns a response from the model.
-    #     model=os.getenv("MODEL"),  # specify the model to use for generating responses
-    #     messages=messages,
-    #     tools=TOOLS,  # pass the list of tools to the model so that it can use them to generate responses
-    # )
-
-    # model_response = response.choices[0].message  # get the model's response from the response object
-
-    # added all the tools information here
     for step in range(MAX_STEPS):  # loop through the maximum number of steps to allow the model to generate a response
 
         log(f"Calling model, step {step + 1}/{MAX_STEPS}")
@@ -84,22 +73,7 @@ while True:             # infinite loop to keep the program running and allow fo
 
         for tool_call in model_response.tool_calls:  # iterate over the tool calls made by the model
 
-            function_name = tool_call.function.name  # get the name of the tool(function) that was called
-            log(f"Model requested tool: {function_name}")
-
-            try:
-                function_args = json.loads(tool_call.function.arguments or "{}")  # get the arguments passed to the tool(function) that was called and convert them from a JSON string to a Python dictionary
-
-                fn = FUNCTIONS_NAME_TO_FUNCTION_MAPPING.get(function_name)  # get the actual function object from the mapping dictionary using the function name
-
-                if fn is None:
-                    raise ValueError(f"Unknown function: {function_name}")
-
-                result = fn(**function_args)  # call the function with the arguments and store the result
-
-            except Exception as e:
-                log(f"Tool {function_name} failed: {type(e).__name__}: {e}")
-                result = f"Error calling function {function_name}: {str(e)}"
+            result = execute_tool(tool_call)  # call the execute_tool function to execute the tool call and get the result
 
             messages.append({
                 "role": "tool",
