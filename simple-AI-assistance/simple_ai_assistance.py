@@ -2,6 +2,7 @@
 from openai import OpenAI   #import the OpenAI class from the openai module
 from dotenv import load_dotenv  #import the load_dotenv function from the dotenv module
 import os                     #import the os module to access environment variables
+from types import SimpleNamespace  # import SimpleNamespace to create objects from accumulated tool calls
 from Utilities.utilities import log  #import the utilities module from the Utilities package
 from tools import *  #import all the functions from the tools.py file
 
@@ -14,8 +15,7 @@ client = OpenAI(
 
 messages = []  # initialize an empty list to store the conversation history
 
-MAX_STEPS = 5  # set the maximum number of steps for the model to take in generating responses
-
+MAX_STEPS = 5  # set the maximum number of steps for the model to take in generating a response
 
 messages.append({
     "role": "system",
@@ -43,29 +43,113 @@ while True:             # infinite loop to keep the program running and allow fo
     messages.append({"role": "user", "content": user_input})  # add the user's input to the conversation history
 
 
-    # Streaming the response from the model
-    log("Calling model with streaming enabled")
+    for step in range(MAX_STEPS):  # loop through the maximum number of steps to allow the model to generate a response
 
-    response = client.chat.completions.create(
-        model=os.getenv("MODEL"),
-        messages=messages,
-        stream=True
-    )
+        log(f"Calling model, step {step + 1}/{MAX_STEPS}")
 
-    full_response = ""
+        response = client.chat.completions.create(
+            model=os.getenv("MODEL"),
+            messages=messages,
+            tools=TOOLS,
+            stream=True
+        )
 
-    print("Assistant: ", end="", flush=True)
+        full_response = ""
+        tool_calls = {}
 
-    for chunk in response:
-        content = chunk.choices[0].delta.content
+        print("Assistant: ", end="", flush=True)
+        printed_content = False
 
-        if content:
-            print(content, end="", flush=True)
-            full_response += content
+        for chunk in response:  # iterate over the streaming chunks received from the model
 
-    print()
+            delta = chunk.choices[0].delta
 
-    messages.append({
-        "role": "assistant",
-        "content": full_response
-    })  # add the complete assistant response to the conversation history
+            if delta.content:  # check if the model has generated text content
+
+                print(delta.content, end="", flush=True)
+                full_response += delta.content
+                printed_content = True
+
+            if delta.tool_calls:  # check if the model has generated any tool calls
+
+                for tool_call in delta.tool_calls:
+
+                    index = tool_call.index  # get the index of the tool call
+
+                    if index not in tool_calls:
+                        tool_calls[index] = {
+                            "id": "",
+                            "type": "function",
+                            "function": {
+                                "name": "",
+                                "arguments": ""
+                            }
+                        }
+
+                    if tool_call.id:
+                        tool_calls[index]["id"] = tool_call.id
+
+                    if tool_call.function.name:
+                        tool_calls[index]["function"]["name"] += tool_call.function.name
+
+                    if tool_call.function.arguments:
+                        tool_calls[index]["function"]["arguments"] += tool_call.function.arguments
+
+        if printed_content:
+            print()
+
+        if not tool_calls:  # check if the model has made any tool calls
+
+            messages.append({
+                "role": "assistant",
+                "content": full_response
+            })  # add the final assistant response to the conversation history
+
+            if not printed_content:
+                print("Assistant: No response generated.")
+
+            break  # exit the loop if there are no tool calls
+
+        tool_calls = dict(sorted(tool_calls.items()))
+
+        messages.append({
+            "role": "assistant",
+            "content": full_response or None,
+            "tool_calls": list(tool_calls.values())
+        })  # add the assistant tool call to the conversation history
+
+        for tool_call in tool_calls.values():  # iterate over the tool calls made by the model
+
+            function_name = tool_call["function"]["name"]
+
+            # convert the accumulated tool call into an object that execute_tool can understand
+            tool_call_object = SimpleNamespace(
+                id=tool_call["id"],
+                function=SimpleNamespace(
+                    name=function_name,
+                    arguments=tool_call["function"]["arguments"]
+                )
+            )
+
+            result = execute_tool(tool_call_object)  # call the execute_tool function to execute the tool call and get the result
+
+            messages.append({
+                "role": "tool",
+                "tool_call_id": tool_call["id"],
+                "content": str(result)
+            })  # add the tool's response to the conversation history
+
+        #till here we have called all the tools required by the model and added their results to the conversation history. Now we will make another call to the model to get its final response after having all the tool results in the conversation history.
+
+    else:
+        #Ran out of steps: The model never gave the final answer
+        log(f"Model reached the maximum of {MAX_STEPS} steps without a final response")
+
+        fallback_response = "I'm sorry, I couldn't complete the request within the allowed steps. Please try again."
+
+        messages.append({
+            "role": "assistant",
+            "content": fallback_response
+        })
+
+        print("Assistant:", fallback_response)
