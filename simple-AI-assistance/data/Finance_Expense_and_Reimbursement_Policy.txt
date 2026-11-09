@@ -1,0 +1,35 @@
+ORGANIZATION: Northstar Technologies (Fictional Sample Company)
+DOCUMENT: Finance, Expense and Reimbursement Policy
+VERSION: 1.0
+EFFECTIVE DATE: 1 January 2026
+NOTE: Fictional sample content for RAG practice. Actual tax and accounting treatment may differ.
+
+SECTION 1: PURPOSE AND SCOPE
+This policy explains how employees request business purchases, submit expenses, and receive reimbursements. It applies to employees incurring expenses on behalf of the company.
+
+SECTION 2: GENERAL EXPENSE PRINCIPLES
+Expenses must be necessary, reasonable, business-related, and supported by appropriate evidence. Personal expenses must not be submitted. Employees should choose cost-effective options consistent with business needs.
+
+SECTION 3: PRE-APPROVAL
+Travel, equipment, subscriptions, and any single purchase above INR 10,000 require written manager approval before the commitment is made. Department budgets may impose lower limits. Splitting a purchase to avoid approval limits is prohibited.
+
+SECTION 4: RECEIPTS AND DOCUMENTATION
+Expense claims must include an itemized receipt, transaction date, amount, currency, business purpose, and relevant project or cost centre. If a receipt is unavailable, the employee must provide an explanation and obtain manager approval.
+
+SECTION 5: SUBMISSION DEADLINE
+Employees should submit expense claims within 30 calendar days after the expense date. Late submissions may require additional approval and may be declined if supporting records are insufficient.
+
+SECTION 6: MEALS AND LOCAL TRAVEL
+Business meals must have a clear business purpose and identify attendees. Local travel should use reasonable routes and economical transport. Fines, personal entertainment, and commuting between home and the normal workplace are not reimbursable under this sample policy.
+
+SECTION 7: TRAVEL BOOKINGS
+Travel should be booked through the approved booking process. Economy class is the default for flights under six hours. Hotel selection should be reasonable for the destination and within the approved trip budget.
+
+SECTION 8: REVIEW AND REIMBURSEMENT
+The employee's manager reviews business purpose and budget availability. Finance checks documentation and policy compliance. Approved claims are normally paid in the next regular reimbursement cycle.
+
+SECTION 9: FRAUD AND CONFLICTS
+Falsified receipts, duplicate claims, altered amounts, or claims for personal purchases are prohibited. Suspected misuse should be reported to Finance or the designated ethics contact.
+
+SECTION 10: EXCEPTIONS
+Exceptions require written approval from the Finance Controller before the expense is incurred, except in genuine emergencies where approval must be obtained as soon as practical.

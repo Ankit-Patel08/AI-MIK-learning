@@ -1,0 +1,38 @@
+ORGANIZATION: Northstar Technologies (Fictional Sample Company)
+DOCUMENT: Business Continuity and Incident Response Policy
+VERSION: 1.0
+EFFECTIVE DATE: 1 January 2026
+NOTE: Fictional sample content for RAG practice.
+
+SECTION 1: PURPOSE AND OBJECTIVES
+This policy describes how the company prepares for disruptions and coordinates response and recovery. The objectives are to protect people, reduce operational impact, restore priority services, and communicate clearly.
+
+SECTION 2: SCOPE
+The policy covers disruptions affecting offices, staff availability, technology, suppliers, facilities, and critical business processes. Department-specific recovery plans provide additional operational detail.
+
+SECTION 3: INCIDENT SEVERITY
+Severity 1 incidents cause major disruption to critical services or create immediate safety or security concerns. Severity 2 incidents significantly affect a team or important service. Severity 3 incidents have limited impact and can be managed through normal support processes.
+
+SECTION 4: INCIDENT REPORTING
+Employees should report incidents through the service desk or emergency contact channel. Reports should include what happened, when it started, affected locations or systems, known impact, and immediate actions already taken.
+
+SECTION 5: INCIDENT LEADERSHIP
+For a Severity 1 incident, the Incident Manager coordinates response activities, assigns owners, maintains an incident log, and provides status updates. Technical, facilities, HR, legal, and communications leads support as needed.
+
+SECTION 6: EMPLOYEE SAFETY
+People safety takes priority over equipment and business operations. Employees must follow evacuation instructions and local emergency procedures. No employee should take an unsafe action to protect company property.
+
+SECTION 7: COMMUNICATION
+Only authorized spokespeople may issue external statements about major incidents. Internal updates should state confirmed facts, current impact, actions underway, and the next update time. Speculation should be avoided.
+
+SECTION 8: SERVICE RECOVERY
+Teams should restore services according to documented priorities. Recovery steps must be tested where practical, and data integrity should be checked before a service is declared fully restored.
+
+SECTION 9: BACKUPS AND RECOVERY TESTS
+Critical systems should have documented backup and restoration procedures. Recovery tests should be performed at least annually, and material gaps should be assigned an owner and target date.
+
+SECTION 10: POST-INCIDENT REVIEW
+A review should be held after major incidents. It should identify contributing factors, what worked, what did not, corrective actions, owners, and due dates. The purpose is learning and prevention, not blame.
+
+SECTION 11: POLICY MAINTENANCE
+The Business Continuity Lead reviews this policy annually and after a major incident or significant operational change.

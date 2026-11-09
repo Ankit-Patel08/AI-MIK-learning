@@ -1,0 +1,35 @@
+ORGANIZATION: Northstar Technologies (Fictional Sample Company)
+DOCUMENT: IT Acceptable Use and Security Policy
+VERSION: 1.0
+EFFECTIVE DATE: 1 January 2026
+NOTE: Fictional sample content for RAG practice. Follow your actual organization's security rules.
+
+SECTION 1: PURPOSE AND SCOPE
+This policy defines safe and acceptable use of company computers, accounts, networks, software, and data. It applies to employees, interns, and contractors who access company systems.
+
+SECTION 2: ACCOUNT SECURITY
+Every user must use an individual account. Sharing passwords or authentication codes is prohibited. Multi-factor authentication must be enabled wherever the service supports it. Suspected account compromise must be reported immediately to IT.
+
+SECTION 3: PASSWORDS AND AUTHENTICATION
+Passwords must be unique to company systems and should be stored only in an approved password manager. Users must not send passwords through email or chat. IT may require password resets after a suspected security incident.
+
+SECTION 4: DEVICE SECURITY
+Company devices must use screen locks, supported operating systems, and approved endpoint protection. Users should install security updates promptly. Lost or stolen devices must be reported to the IT service desk without delay.
+
+SECTION 5: SOFTWARE INSTALLATION
+Users may install software only from approved sources and in accordance with their access permissions. Unlicensed software, unauthorized browser extensions, and tools that bypass security controls are prohibited.
+
+SECTION 6: DATA CLASSIFICATION
+Company information is classified as Public, Internal, Confidential, or Restricted. Confidential and Restricted information must be shared only with authorized recipients using approved storage and transfer methods.
+
+SECTION 7: NETWORK AND INTERNET USE
+Users must not disable security controls, scan networks without authorization, or connect unknown devices to company networks. Public Wi-Fi should be avoided for sensitive work unless an approved secure connection is used.
+
+SECTION 8: PHISHING AND SUSPICIOUS ACTIVITY
+Users should verify unexpected requests for credentials, payments, or sensitive files. Suspicious links, attachments, pop-ups, or login prompts should be reported to IT. Users should not investigate suspected malware on their own.
+
+SECTION 9: INCIDENT REPORTING
+Report suspected data loss, malware, unauthorized access, or accidental disclosure to the IT security team immediately. Include the time, affected system, and a brief description. Do not delete relevant evidence unless instructed.
+
+SECTION 10: MONITORING AND ENFORCEMENT
+The company may monitor use of its systems to protect security and meet operational requirements, subject to applicable law and internal controls. Violations may result in access restrictions or disciplinary action.

@@ -1,0 +1,35 @@
+ORGANIZATION: Northstar Technologies (Fictional Sample Company)
+DOCUMENT: Information and Data Privacy Policy
+VERSION: 1.0
+EFFECTIVE DATE: 1 January 2026
+NOTE: Fictional educational sample. It does not establish legal compliance or replace applicable privacy law.
+
+SECTION 1: PURPOSE
+This policy describes how the company handles personal and business information. Its goals are to limit unnecessary collection, protect information, and make data handling responsibilities clear.
+
+SECTION 2: TYPES OF INFORMATION
+Personal information may include a person's name, contact details, employee identifier, or account information. Business information may include contracts, plans, customer records, and internal reports. Sensitive information requires additional safeguards.
+
+SECTION 3: DATA COLLECTION
+Teams should collect only information needed for a defined business purpose. The purpose should be documented before collection. Information must not be collected merely because it may be useful someday.
+
+SECTION 4: ACCESS CONTROL
+Access is granted according to job responsibilities and the principle of least privilege. Managers must request access through the approved process. Access should be reviewed when an employee changes roles or leaves the company.
+
+SECTION 5: DATA SHARING
+Information may be shared internally only with people who need it for an authorized task. External sharing requires an approved business purpose and an authorized method. Restricted information must not be placed in public links or personal accounts.
+
+SECTION 6: RETENTION AND DELETION
+Records should be retained only for the approved business or legal retention period. When the retention period ends, records should be securely deleted or anonymized unless a preservation hold applies.
+
+SECTION 7: INDIVIDUAL REQUESTS
+Requests to access, correct, or delete personal information should be forwarded to the designated privacy contact. The privacy team will verify the requester's identity and assess the request under applicable requirements.
+
+SECTION 8: THIRD-PARTY PROCESSORS
+Before a vendor handles company or personal information, the responsible team must complete the required vendor review and obtain appropriate contractual safeguards. Vendors should receive only the data needed for their service.
+
+SECTION 9: PRIVACY INCIDENTS
+Any suspected loss, unauthorized disclosure, or improper access involving personal information must be reported promptly to the privacy and security teams. Teams must preserve relevant details and cooperate with the incident response process.
+
+SECTION 10: POLICY REVIEW
+The privacy lead reviews this policy annually and after significant changes to business operations, technology, or applicable requirements.

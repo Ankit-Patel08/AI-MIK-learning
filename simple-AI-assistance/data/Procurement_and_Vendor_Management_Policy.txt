@@ -1,0 +1,38 @@
+ORGANIZATION: Northstar Technologies (Fictional Sample Company)
+DOCUMENT: Procurement and Vendor Management Policy
+VERSION: 1.0
+EFFECTIVE DATE: 1 January 2026
+NOTE: Fictional sample content for RAG practice.
+
+SECTION 1: PURPOSE
+This policy establishes a consistent process for purchasing goods and services and managing suppliers. It aims to support fair selection, value for money, and responsible vendor relationships.
+
+SECTION 2: PROCUREMENT PLANNING
+The requesting team should define the business need, required specifications, delivery timeline, estimated cost, and budget owner before approaching suppliers.
+
+SECTION 3: QUOTATION REQUIREMENTS
+For purchases up to INR 25,000, one documented price check is recommended. Purchases from INR 25,001 to INR 2,00,000 should normally obtain at least two written quotations. Purchases above INR 2,00,000 should normally obtain at least three written quotations and a documented comparison.
+
+SECTION 4: APPROVAL AUTHORITY
+The department manager approves purchases within the approved departmental budget up to INR 50,000. The department head approves purchases above INR 50,000 and up to INR 2,00,000. Purchases above INR 2,00,000 require Finance Controller approval and executive authorization.
+
+SECTION 5: SUPPLIER SELECTION
+Suppliers should be evaluated on price, quality, delivery capability, service, security, financial stability, and relevant experience. The selection decision and reasons should be recorded.
+
+SECTION 6: CONFLICTS OF INTEREST
+Employees involved in supplier selection must disclose personal, financial, or family relationships that could affect impartiality. A conflicted employee must not participate in the decision unless an authorized reviewer documents an exception.
+
+SECTION 7: PURCHASE ORDERS
+A purchase order should be issued before goods or services are ordered, except where an approved emergency process applies. The purchase order should state scope, price, delivery terms, and payment terms.
+
+SECTION 8: RECEIPT AND ACCEPTANCE
+The requesting team must confirm that goods or services meet the agreed requirements. Differences in quantity, quality, or scope should be recorded and resolved before invoice approval.
+
+SECTION 9: VENDOR ONBOARDING AND REVIEW
+New vendors must complete identity, tax, banking, and risk checks appropriate to the engagement. Critical vendors should be reviewed at least annually for service quality, security, and contractual performance.
+
+SECTION 10: RECORDKEEPING
+Procurement records should include requests, quotations, evaluation notes, approvals, purchase orders, contracts, and acceptance evidence. Records must be stored in the approved repository.
+
+SECTION 11: EXCEPTIONS
+Urgent purchases may use an expedited process with written justification and retrospective review by Procurement and Finance.

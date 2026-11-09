@@ -1,0 +1,32 @@
+ORGANIZATION: Northstar Technologies (Fictional Sample Company)
+DOCUMENT: Employee and Human Resources Policy
+VERSION: 1.0
+EFFECTIVE DATE: 1 January 2026
+NOTE: This is fictional sample content created for RAG practice, not legal or professional advice.
+
+SECTION 1: PURPOSE AND SCOPE
+This policy explains the basic employment expectations and workplace practices at Northstar Technologies. It applies to all full-time and part-time employees. Contractors and interns follow the parts of this policy specified in their agreements.
+
+SECTION 2: WORKING HOURS
+The standard work schedule is Monday through Friday, 9:00 AM to 6:00 PM, including a one-hour lunch break. Teams may agree on flexible start and end times with their manager, provided business coverage is maintained.
+
+SECTION 3: ATTENDANCE AND PUNCTUALITY
+Employees should notify their manager as soon as possible if they expect to be late or absent. Repeated unexplained absences may lead to a formal review. Employees should record attendance using the company's designated attendance system.
+
+SECTION 4: REMOTE WORK
+Eligible employees may work remotely up to three days per week with manager approval. Employees working remotely must protect confidential information, remain reachable during agreed working hours, and use approved devices and network connections.
+
+SECTION 5: LEAVE REQUESTS
+Planned leave should be submitted through the HR portal at least five working days in advance where possible. Emergency leave should be reported to the manager as soon as practical. Approval depends on team coverage and applicable employment terms.
+
+SECTION 6: PROFESSIONAL CONDUCT
+Employees are expected to communicate respectfully, avoid harassment and discrimination, disclose conflicts of interest, and use company resources responsibly. Concerns may be reported to HR or through the confidential reporting channel.
+
+SECTION 7: PERFORMANCE REVIEWS
+Managers should hold at least one structured performance discussion every six months. Reviews may consider role responsibilities, work quality, collaboration, reliability, and progress toward agreed goals.
+
+SECTION 8: EMPLOYEE RECORDS
+HR maintains employment records and limits access to authorized personnel. Employees should notify HR when their contact details or emergency contact information changes.
+
+SECTION 9: QUESTIONS AND EXCEPTIONS
+Questions about this policy should be sent to the HR team. Any exception requires written approval from the HR lead and the employee's department head.
