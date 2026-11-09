@@ -40,7 +40,10 @@ while True:             # infinite loop to keep the program running and allow fo
         break          # exit the loop and end the program
 
     log(f"Received user input ({len(user_input)} characters)")
+    messages_before_turn = len(messages)  # store the current conversation history length
     messages.append({"role": "user", "content": user_input})  # add the user's input to the conversation history
+
+    interrupted = False
 
 
     for step in range(MAX_STEPS):  # loop through the maximum number of steps to allow the model to generate a response
@@ -59,41 +62,48 @@ while True:             # infinite loop to keep the program running and allow fo
 
         print("Assistant: ", end="", flush=True)
         printed_content = False
+        try:             # this try to handle the keyboard interrupt error when the user presses ctrl+c to stop the program
+            for chunk in response:  # iterate over the streaming chunks received from the model
 
-        for chunk in response:  # iterate over the streaming chunks received from the model
+                delta = chunk.choices[0].delta
 
-            delta = chunk.choices[0].delta
+                if delta.content:  # check if the model has generated text content
 
-            if delta.content:  # check if the model has generated text content
+                    print(delta.content, end="", flush=True)
+                    full_response += delta.content
+                    printed_content = True
 
-                print(delta.content, end="", flush=True)
-                full_response += delta.content
-                printed_content = True
+                if delta.tool_calls:  # check if the model has generated any tool calls
 
-            if delta.tool_calls:  # check if the model has generated any tool calls
+                    for tool_call in delta.tool_calls:
 
-                for tool_call in delta.tool_calls:
+                        index = tool_call.index  # get the index of the tool call
 
-                    index = tool_call.index  # get the index of the tool call
-
-                    if index not in tool_calls:
-                        tool_calls[index] = {
-                            "id": "",
-                            "type": "function",
-                            "function": {
-                                "name": "",
-                                "arguments": ""
+                        if index not in tool_calls:
+                            tool_calls[index] = {
+                                "id": "",
+                                "type": "function",
+                                "function": {
+                                    "name": "",
+                                    "arguments": ""
+                                }
                             }
-                        }
 
-                    if tool_call.id:
-                        tool_calls[index]["id"] = tool_call.id
+                        if tool_call.id:
+                            tool_calls[index]["id"] = tool_call.id
 
-                    if tool_call.function.name:
-                        tool_calls[index]["function"]["name"] += tool_call.function.name
+                        if tool_call.function.name:
+                            tool_calls[index]["function"]["name"] += tool_call.function.name
 
-                    if tool_call.function.arguments:
-                        tool_calls[index]["function"]["arguments"] += tool_call.function.arguments
+                        if tool_call.function.arguments:
+                            tool_calls[index]["function"]["arguments"] += tool_call.function.arguments
+        except KeyboardInterrupt:
+           print("\nKeyboardInterrupt received. Stopping the model response stream.")
+           response.close()
+           tool_calls = {}  # clear the tool calls to prevent further processing
+           full_response = ""  # clear the full response to prevent further processing
+           interrupted = True
+           break  # continue to the next iteration of the loop if an error occurs while processing the model response       
 
         if printed_content:
             print()
@@ -153,3 +163,7 @@ while True:             # infinite loop to keep the program running and allow fo
         })
 
         print("Assistant:", fallback_response)
+
+    if interrupted:
+        del messages[messages_before_turn:]
+        log("Interrupted conversation turn removed from message history.")
