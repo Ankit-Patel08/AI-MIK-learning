@@ -1,5 +1,7 @@
+import json
 import os
 
+import json
 from openai import OpenAI
 from pathlib import Path
 from dotenv import load_dotenv
@@ -19,6 +21,8 @@ KB_FOLDER = (
     kb_path if kb_path.is_absolute()
     else (PROJECT_ROOT / kb_path).resolve()
 )
+
+VECTOR_STORE_FILE = PROJECT_ROOT / "data" / "vector_store.json"
 
 client = OpenAI(
     base_url=os.getenv("BASE_URL"),
@@ -117,20 +121,52 @@ def test(user_query, chunks, top_k=3):
     print(f"User Query: {user_query}")
     results = search_chunks(user_query, chunks, top_k)
    
-    for r in enumerate(results):
-        print(f"Source: {r[1]['source']}")
-        print(f"Score: {r[1]['score']:.3f}")
-        print(f"Size: {r[1]['size']} characters")
-        print(f"Text: {r[1]['text'][:200]}...")  # Print first 200 characters of the text
+    for i, r in enumerate(results, start=1):
+        print(f"\nResult {i}")
+        print(f"Source: {r['source']}")
+        print(f"Chunk ID: {r['chunk_id']}")
+        print(f"Score: {r['score']:.3f}")
+        print(f"Size: {r['size']} characters")
+        print(f"Text: {r['text'][:200]}...")
 
 
 
-#let's start 
-chunks = create_chunks()  # Assuming you have a function to create chunks from documents
-chunks = add_embeddings(chunks)
+def save_vector_store(chunks):
+    VECTOR_STORE_FILE.parent.mkdir(parents=True, exist_ok=True)
 
-print(f"Loaded {len(chunks)} chunks with embeddings.")
+    with open(VECTOR_STORE_FILE, "w", encoding="utf-8") as f:
+        json.dump(chunks, f, indent=4)
+
+    print("Vector store saved successfully!")
+    
+
+def load_vector_store():
+    if not VECTOR_STORE_FILE.exists():
+        return None
+
+    with open(VECTOR_STORE_FILE, "r", encoding="utf-8") as f:
+        content = f.read().strip()
+
+        if not content:
+            return None
+
+        return json.loads(content)
+
+
+chunks = load_vector_store()
+
+if chunks is not None and len(chunks) > 0:
+    print(f"Loaded {len(chunks)} chunks from vector store.")
+
+else:
+    print("Creating a new vector store...")
+
+    chunks = create_chunks()
+    chunks = add_embeddings(chunks)
+
+    save_vector_store(chunks)
+
+    print(f"Created and saved {len(chunks)} chunks.")
 
 user_query = input("Enter your query: ")
 test(user_query, chunks, top_k=3)
-
